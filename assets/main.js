@@ -17,7 +17,8 @@ function verifyId(method) {
 }
 
 function redirectPage(destination) {
-    window.location.href = `${destination}.html`;
+    //window.location.href = `${destination}.html`;
+    window.location.reload();
 }
 
 function requestResult(aluno, method) {
