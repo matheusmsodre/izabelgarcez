@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="assets/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="ctn a">
+            <img id="logo" src="assets/img/marca d'água 2.png" alt="" srcset="">
+        </div>
+
+        <div class="ctn b">
+            <div class="option get" onclick="redirectPage('seeClass')">
+                <div class="inside menu">
+                    <img class="dente" src="assets/img/marca d'água 22.png" alt="" srcset="">
+                    <span class="text get">MARCAR HORÁRIO</span>
+                </div>
+            </div>
+            <br>
+            <div class="option post" onclick="redirectPage('addClass')">
+                <div class="inside menu">
+                    <img class="dente" src="assets/img/marca d'água 22.png" alt="" srcset="">
+                    <span class="text post">GERENCIAR MARCAÇÕES</span>
+                </div>
+            </div>
+            <br>
+            <div class="option put" onclick="redirectPage('updateClass')">
+                <div class="inside menu">
+                    <img class="dente" src="assets/img/marca d'água 22.png" alt="" srcset="">
+                    <span class="text put">DISPONIBILIDADE</span>
+                </div>
+            </div>
+            <br>
+            <div class="option delete" onclick="redirectPage('deleteClass')">
+                <div class="inside menu">
+                    <img class="dente" src="assets/img/marca d'água 22.png" alt="" srcset="">
+                    <span class="text delete">CONTATAR MARCADOR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/main.js"></script>
+    <script src="assets/request.js"></script>
+</body>
+
+<script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
+<script>
+    (function () {
+        window.onload = function () {
+            new BlipChat()
+                .withAppKey('dm9sdmVyZWNvbnRhdG9pbnRlbGlnZW50ZToyNGM3YzE0MS05YWNlLTRiMTktYWE1Zi05MGQwMjA5ZmNiNDA=')
+                .withButton({"color":"#0096fa","icon":""})
+                .withCustomCommonUrl('https://matheus-sodre-yaanj.chat.blip.ai/')
+                .build();
+        }
+    })();
+</script>
+
+</html>
+

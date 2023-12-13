@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body{
+            height: 98vh;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            /* Permite que os itens quebrem para a próxima linha */
+        }
+
+        .item {
+            flex: 1 1 50%;
+            background-color: aqua;
+            /* Cada item ocupa 50% da largura */
+            /* Estilos adicionais para as divs */
+        }
+
+        .item:nth-child(2){
+            background-color: black;
+        }
+
+        /* Media query para ajustar o layout em telas menores */
+        @media screen and (max-width: 600px) {
+            .item {
+                flex: 1 1 100%;
+                /* Em telas menores, cada item ocupa 100% da largura */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">Conteúdo da div 1</div>
+        <div class="item">Conteúdo da div 2</div>
+    </div>
+
+</body>
+
+</html>

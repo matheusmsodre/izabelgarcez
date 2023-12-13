@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: rgb(151, 199, 255);
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 1vh;
+        }
+
+        #fullContent {
+            margin-top: 10vh;
+            background-color: rgb(40, 40, 40);
+            padding: 3vh;
+            padding-top: 1vh;
+            border-radius: 1.5vh;
+            color: rgb(151, 199, 255);
+            min-height: 50vh;
+        }
+
+        .insideContent {
+            margin-top: 1vh;
+            text-align: center;
+            border-radius: 1.5vh;
+            padding: 4vh;
+            background-color: rgb(151, 199, 255);
+            color: rgb(40, 40, 40);
+            user-select: none;
+        }
+
+        .insideContent.m1 {
+            line-height: 1vh;
+        }
+
+        .put {
+            margin-top: 0.5vh;
+            margin-bottom: 2vh;
+            outline: 0;
+            border: 0;
+            border-radius: 0.5vh;
+            font-size: 1.75vh;
+            padding: 1.25vh;
+            box-sizing: border-box;
+            max-width: 80%;
+        }
+
+        .put.id {
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 .25vh .25vh rgba(0, 89, 255, 0);
+        }
+
+        #sendBtn {
+            margin-top: 2vh;
+            padding: 0.5vh 2vh 0.5vh 2vh;
+            border: 0.2vh solid rgb(40, 40, 40);
+            border-radius: 0.75vh;
+            cursor: pointer;
+            background-color: rgb(40, 40, 40);
+            font-size: 2vh;
+            color: rgb(151, 199, 255);
+            outline: 0;
+            transition: 0.2s;
+            max-width: 80%;
+        }
+
+       #sendBtn:hover {
+            color: rgb(40, 40, 40);
+            background-color: rgba(40, 40, 40, 0);
+        }
+
+        #symbol {
+            display: flex;
+            align-items: center;
+            font-size: 3vh;
+        }
+
+        .visor {
+            padding: 1vh;
+            border: 0;
+            border-radius: 5px;
+            background-color: white;
+            font-size: 1.5vh;
+        }
+
+        .insideContent.m2,
+        .insideContent.m3 {
+            display: none;
+            text-align: center;
+            font-size: 2vh;
+            padding: 1vh;   
+        }
+
+        .result {
+            display: inline-block;
+            margin-right: 5vh;
+            margin-bottom: 5vh;
+        }
+
+        #backArrow {
+            position: fixed;
+            color: rgb(40, 40, 40);
+            padding: 1vh;
+            border: 0;
+            margin-top: -8vh;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        input[type='checkbox']:checked+.switch {
+            background-color: rgb(0, 89, 255);
+            border: 0.1vh solid rgb(0, 89, 255);
+        }
+
+        .switch {
+            position: relative;
+            top: 1vh;
+            left: -1vh;
+            display: inline-flex;
+            align-items: center;
+            width: 2.9vh;
+            height: 2.9vh;
+            background-color: white;
+            border: 0.1vh solid rgb(75, 75, 75);
+            border-radius: 1vh;
+            justify-content: center;
+            box-sizing: border-box;
+            transition: .3s all ease;
+            cursor: pointer;
+        }
+
+        #mark {
+            width: 3.0vh;
+            height: 3.0vh;
+            color: white;
+            border-radius: 10vh;
+        }
+
+        #markBlocked {
+            width: 3.0vh;
+            height: 3.0vh;
+            border-radius: 10vh;
+            background-color: gold;
+            clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%);
+        }
+
+        #pop {
+            display: none;
+        }
+
+        .switch.id {
+            border: 0;
+            background-color: rgba(255, 255, 255, 0);
+
+        }
+
+        .check.id {
+            cursor: auto;
+        }
+
+        .par {
+            text-align: left;
+            background-color: rgb(40, 40, 40);
+            color: rgb(151, 199, 255);
+            display: inline-block;
+            padding: 2vh;
+            padding-bottom: 1vh;
+            padding-top: 1vh;
+            border-radius: 8px;
+            margin-bottom: 5vh;
+        }
+
+        .par.error {
+            color: red;
+            margin-bottom: 1vh;
+            margin-top: 1vh;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <a href="index.html" id="backArrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="3vh" height="3vh" fill="currentColor"
+            class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z" />
+        </svg>
+    </a>
+
+    <div id="fullContent">
+        <p id="symbol">
+            <svg xmlns="http://www.w3.org/2000/svg" width="3vh" height="3vh" style="margin-right: 1vh;"
+                fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+            </svg>
+            Atualizar dados
+        </p>
+
+        <div class="insideContent m1">
+
+            <label>
+                <input type="checkbox" name="" id="pop" disabled>
+                <div class="switch id">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="check id" id="markBlocked" fill="currentColor"
+                        class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
+                        <path
+                            d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z" />
+                        <path
+                            d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                    </svg>
+                </div>
+            </label>
+            <input type="text" name="" class="put id" placeholder="Matrícula" onfocusout="verifyId('put')">
+
+            <br>
+
+            <label>
+                <input type="checkbox" name="" id="pop" class="check name" onclick="verifyCheckBox('name')">
+                <div class="switch">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="mark" fill="currentColor" class="bi bi-check-lg"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                    </svg>
+                </div>
+            </label>
+            <input type="text" name="" class="put name" placeholder="Nome" disabled>
+
+            <br>
+
+            <label>
+                <input type="checkbox" name="" id="pop" class="check age" onclick="verifyCheckBox('age')">
+                <div class="switch">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="mark" fill="currentColor" class="bi bi-check-lg"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                    </svg>
+                </div>
+            </label>
+            <input type="text" name="" class="put age" placeholder="Idade" disabled>
+
+            <br>
+
+            <input type="button" value="Atualizar" onclick="putData()" id="sendBtn">
+        </div>
+        <div class="insideContent m2">
+
+            <p class="par added">Aluno atualizado</p>
+            <br>
+
+            <div class="result">
+                <span class="visorText">Matrícula</span>
+                <span class="visor matricula"></span>
+            </div>
+
+            <div class="result">
+                <span class="visorText">Nome</span>
+                <span class="visor nome"></span>
+            </div>
+
+            <div class="result">
+                <span class="visorText">Idade</span>
+                <span class="visor idade"></span>
+            </div>
+
+            <div class="result">
+                <span class="visorText">Status</span>
+                <span class="visor status"></span>
+            </div>
+        </div>
+
+        <div class="insideContent m3">
+            <p class="par error"></p>
+        </div>
+    </div>
+
+    <script src="assets/request.js"></script>
+    <script src="assets/main.js"></script>
+</body>
+
+</html>

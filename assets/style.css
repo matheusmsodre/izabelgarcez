@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Frunchy';
+    src: url('FontsFree-Net-Frunchy.ttf');
+}
+
+@font-face {
+    font-family: 'Vogue';
+    src: url('Classyvogueregular.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('Montserrat-Regular.ttf');
+}
+
+
+
+body {
+    background-color: #f9e6eb;
+    margin: 0;
+    height: 98vh;
+    padding: 1vh 1vh 1vh 1vh;
+    background-image: url('img/pattern\ 5.png');
+    background-size: contain;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.option {
+    background-color: #dec9be;
+    width: 100%;
+    height: 8vh;
+    box-sizing: border-box;
+    border-radius: 0.5vh;
+    padding: 1.5vh;
+    box-shadow: 0 0 0 0 rgba(81, 81, 81, 0);
+    user-select: none;
+    transition: 0.2s;
+    cursor: pointer;
+    color: #b8860b;
+    font-family: 'Montserrat';
+    font-size: 2vh;
+}
+
+
+.inside.menu {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1.25vh;
+}
+
+#container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.ctn {
+    width: 50%;
+    height: 98%;
+    border-radius: 2vh;
+    flex: 1 1 49.5%;
+    box-sizing: border-box;
+    margin-bottom: 2%;
+}
+
+.ctn.a {
+    background-color: #cc859d;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.ctn.b {
+    margin-left: 1%;
+
+    box-sizing: border-box;
+}
+
+.dente{
+    width: 3vh;
+    height: 3vh;
+    margin-right: 1vh;
+}
+
+#logo {
+    width: 70%;
+}
+
+@media screen and (max-width: 600px) {
+    .ctn {
+        flex: 1 1 100%; /* Em telas menores, cada item ocupa 100% da largura */
+    }
+}

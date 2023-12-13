@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: rgb(142, 255, 148);
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 1vh;
+        }
+
+        #fullContent {
+            margin-top: 10vh;
+            background-color: rgb(40, 40, 40);
+            padding: 3vh;
+            padding-top: 1vh;
+            border-radius: 1.5vh;
+            color: rgb(142, 255, 148);
+            min-height: 45vh;
+        }
+
+        .insideContent {
+            margin-top: 1vh;
+            text-align: center;
+            border-radius: 1.5vh;
+            padding: 4vh;
+            background-color: rgb(142, 255, 148);
+            color: rgb(40, 40, 40);
+        }
+
+        .insideContent.m1 {
+            line-height: 1vh;
+        }
+
+        .post {
+            margin-top: 0.5vh;
+            margin-bottom: 2vh;
+            outline: 0;
+            border: 0;
+            border-radius: 0.5vh;
+            background-color: rgba(255, 255, 255, 0.6);
+            font-size: 1.75vh;
+            padding: 1.25vh;
+            box-sizing: border-box;
+            max-width: 80%;
+        }
+
+        #sendBtn {
+            margin-top: 2vh;
+            padding: 0.5vh 2vh 0.5vh 2vh;
+            border: 0.2vh solid rgb(40, 40, 40);
+            border-radius: 0.75vh;
+            cursor: pointer;
+            background-color: rgb(40, 40, 40);
+            font-size: 2vh;
+            color: rgb(142, 255, 148);
+            outline: 0;
+            transition: 0.2s;
+            max-width: 80%;
+        }
+
+        #sendBtn:hover {
+            color: rgb(40, 40, 40);
+            background-color: rgba(40, 40, 40, 0);
+        }
+
+        .post:focus {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        #symbol {
+            display: flex;
+            align-items: center;
+            font-size: 3vh;
+        }
+
+        .visor {
+            padding: 1vh;
+            border: 0;
+            border-radius: 5px;
+            background-color: white;
+            font-size: 1.5vh;
+        }
+
+        .insideContent.m2,
+        .insideContent.m3 {
+            display: none;
+            text-align: center;
+            font-size: 2vh;
+            padding: 1vh;
+        }
+
+        .result {
+            display: inline-block;
+            margin-right: 5vh;
+            margin-bottom: 5vh;
+        }
+
+        .par {
+            text-align: left;
+            background-color: rgb(40, 40, 40);
+            color: rgb(142, 255, 148);
+            display: inline-block;
+            padding: 2vh;
+            padding-bottom: 1vh;
+            padding-top: 1vh;
+            border-radius: 8px;
+            margin-bottom: 5vh;
+        }
+
+        .par.error {
+            color: red;
+            margin-bottom: 1vh;
+            margin-top: 1vh;
+        }
+
+        #backArrow {
+            position: fixed;
+            color: rgb(40, 40, 40);
+            padding: 1vh;
+            border: 0;
+            margin-top: -8vh;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <a href="index.html" id="backArrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="3vh" height="3vh" fill="currentColor"
+            class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z" />
+        </svg>
+    </a>
+
+    <div id="fullContent">
+        <p id="symbol">
+            <img src="assets/img/marca d'água 22.png" width="32vh" height="32vh" style="margin-right: 1vh;" alt="" srcset="">
+            Cadastro de alunos
+        </p>
+        <div class="insideContent m1">
+            <input type="text" name="" class="post name" placeholder="Nome">
+            <br>
+            <input type="text" name="" class="post age" placeholder="Idade">
+            <br>
+            <input type="button" value="Cadastrar" onclick="postData()" id="sendBtn">
+        </div>
+        <div class="insideContent m2">
+
+            <p class="par added">Aluno adicionado</p>
+            <br>
+
+            <div class="result">
+                <span class="visorText">Matrícula</span>
+                <span class="visor matricula"></span>
+            </div>
+
+            <div class="result">
+                <span class="visorText">Nome</span>
+                <span class="visor nome"></span>
+            </div>
+
+            <div class="result">
+                <span class="visorText">Idade</span>
+                <span class="visor idade"></span>
+            </div>
+
+            <div class="result">
+                <span class="visorText">Status</span>
+                <span class="visor status"></span>
+            </div>
+
+
+        </div>
+
+        <div class="insideContent m3">
+            <p class="par error"></p>
+        </div>
+    </div>
+
+    <script src="assets/request.js"></script>
+    <script src="assets/main.js"></script>
+</body>
+
+</html>
